@@ -16,7 +16,7 @@ const RegisterPage: React.FC<IPropsRegister> = (
 	return (
 		<>
 			<Typography variant="h2" fontFamily="Poppins" textAlign="center">
-				Регистрация
+				Sign up
 			</Typography>
 			<Typography
 				variant="body1"
@@ -24,14 +24,14 @@ const RegisterPage: React.FC<IPropsRegister> = (
 				textAlign="center"
 				marginBottom={3}
 			>
-				Введите данные для регистрации
+				Enter registration details
 			</Typography>
 			<TextField
 				fullWidth={true}
 				margin="normal"
-				label="Имя"
+				label="Name"
 				variant="outlined"
-				placeholder="Введите ваш имя"
+				placeholder="Enter name"
 				onChange={(e) => setFirstName(e.target.value)}
 			/>
 			<TextField
@@ -39,7 +39,7 @@ const RegisterPage: React.FC<IPropsRegister> = (
 				margin="normal"
 				label="Username"
 				variant="outlined"
-				placeholder="Введите ваш username"
+				placeholder="Enter username"
 				onChange={(e) => setUserName(e.target.value)}
 			/>
 			<TextField
@@ -47,7 +47,7 @@ const RegisterPage: React.FC<IPropsRegister> = (
 				margin="normal"
 				label="Email"
 				variant="outlined"
-				placeholder="Введите ваш email"
+				placeholder="Enter email"
 				onChange={(e) => setEmail(e.target.value)}
 			/>
 			<TextField
@@ -56,7 +56,7 @@ const RegisterPage: React.FC<IPropsRegister> = (
 				margin="normal"
 				label="Password"
 				variant="outlined"
-				placeholder="Введите ваш пароль"
+				placeholder="Enter password"
 				onChange={(e) => setPassword(e.target.value)}
 			/>
 			<TextField
@@ -65,28 +65,28 @@ const RegisterPage: React.FC<IPropsRegister> = (
 				margin="normal"
 				label="Password"
 				variant="outlined"
-				placeholder="Повторите ваш пароль"
+				placeholder="Repeat password"
 				onChange={(e) => setRepeatPassword(e.target.value)}
 			/>
 			<Button
 				variant="contained"
 				type="submit"
 				sx={{
-					fontFamily: 'Popins',
+					fontFamily: 'Poppins',
 					marginTop: 2,
 					width: '60%',
 					marginBottom: 2,
 				}}
 			>
-				Регистрация
+				Create account
 			</Button>
 			<Typography variant="body1" sx={{ fontFamily: 'Poppins' }}>
-				У вас есть аккаунта?
+				Do you have an account?
 				<span
 					className="incitingText"
 					onClick={() => navigate('/login')}
 				>
-					Авторизация
+					Sign in
 				</span>
 			</Typography>
 		</>

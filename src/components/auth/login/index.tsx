@@ -7,7 +7,7 @@ const LoginPage: React.FC<IPropsLogin> = (props: IPropsLogin): JSX.Element => {
 	return (
 		<>
 			<Typography variant="h2" fontFamily="Poppins" textAlign="center">
-				Авторизация
+				Sign in
 			</Typography>
 			<Typography
 				variant="body1"
@@ -15,14 +15,14 @@ const LoginPage: React.FC<IPropsLogin> = (props: IPropsLogin): JSX.Element => {
 				textAlign="center"
 				marginBottom={3}
 			>
-				Введите ваш логин и пароль
+				Enter your email and password
 			</Typography>
 			<TextField
 				fullWidth={true}
 				margin="normal"
 				label="Email"
 				variant="outlined"
-				placeholder="Введите ваш email "
+				placeholder="Enter email "
 				onChange={(e) => setEmail(e.target.value)}
 			/>
 			<TextField
@@ -31,7 +31,7 @@ const LoginPage: React.FC<IPropsLogin> = (props: IPropsLogin): JSX.Element => {
 				margin="normal"
 				label="Password"
 				variant="outlined"
-				placeholder="Введите ваш пароль "
+				placeholder="Enter password "
 				onChange={(e) => setPassword(e.target.value)}
 			/>
 			<Button
@@ -44,15 +44,15 @@ const LoginPage: React.FC<IPropsLogin> = (props: IPropsLogin): JSX.Element => {
 					marginBottom: 2,
 				}}
 			>
-				Войти
+				Sign in
 			</Button>
 			<Typography variant="body1" sx={{ fontFamily: 'Poppins' }}>
-				У вас нет аккаунта?
+				Don't have an account?
 				<span
 					className="incitingText"
 					onClick={() => navigate('/register')}
 				>
-					Регистрация
+					Sign up
 				</span>
 			</Typography>
 		</>
