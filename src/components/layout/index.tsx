@@ -3,9 +3,9 @@ import { ILayout } from '../../common/types/layout';
 import TopBarComponent from '../top-bar';
 import { useLocation } from 'react-router-dom';
 import { useMediaQuery } from '@mui/material';
-import { useStyles } from '../top-bar/styles';
 import { Box } from '@mui/system';
 import SideBarComponent from '../sidebar';
+import { useStyles } from './styles';
 
 const LayoutComponent = ({ children }: ILayout) => {
 	const [isOpen, setIsOpen] = useState(true);
@@ -24,11 +24,11 @@ const LayoutComponent = ({ children }: ILayout) => {
 		>
 			<SideBarComponent
 				isNonMobile={isNonMobile}
-				drawerWidth="250"
+				drawerWidth="250px"
 				isOpen={isOpen}
 				setIsOpen={setIsOpen}
 			/>
-			<Box>
+			<Box className={classes.mainSection}>
 				<TopBarComponent />
 				{children}
 			</Box>
