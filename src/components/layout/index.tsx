@@ -7,7 +7,7 @@ import SideBarComponent from '../sidebar';
 import { useStyles } from './styles';
 
 const LayoutComponent = () => {
-	const [isOpen, setIsOpen] = useState(true);
+	const [isOpen, setIsOpen] = useState(false);
 	const location = useLocation();
 	const isNonMobile = useMediaQuery('(min-width:600px)');
 	const classes = useStyles();

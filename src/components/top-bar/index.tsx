@@ -27,7 +27,7 @@ const TopBarComponent = (props: any) => {
 	const classes = useStyles();
 
 	return (
-		<AppBar className={classes.root}>
+		<AppBar className={classes.root} position="static">
 			<Toolbar className={classes.toolbar}>
 				<FlexBetween>
 					<MenuOutlined

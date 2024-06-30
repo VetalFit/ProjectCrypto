@@ -7,9 +7,9 @@ export const useStyles = makeStyles((theme: Theme) => {
 	return {
 		root: {
 			position: 'static',
-			background: colors.primary.DEFAULT,
+			background: `${colors.primary.DEFAULT} !important`,
 			borderBottom: `1px solid ${colors.borderColor}`,
-			boxShadow: 'none',
+			boxShadow: 'none !important',
 		},
 		toolbar: {
 			justifyContent: 'space-between',
