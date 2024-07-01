@@ -34,15 +34,15 @@ function App() {
 									path="/settings"
 									element={<SettingsComponent />}
 								/>
-								<Route
-									path="login"
-									element={<AuthRootComponent />}
-								/>
-								<Route
-									path="register"
-									element={<AuthRootComponent />}
-								/>
 							</Route>
+							<Route
+								path="login"
+								element={<AuthRootComponent />}
+							/>
+							<Route
+								path="register"
+								element={<AuthRootComponent />}
+							/>
 						</Route>
 					</Routes>
 				</div>
