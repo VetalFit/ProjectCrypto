@@ -3,12 +3,9 @@ import { Typography, TextField, Button } from '@mui/material';
 import { IPropsRegister } from '../../../common/types/auth';
 
 const RegisterPage: React.FC<IPropsRegister> = ({
-	setEmail,
-	setPassword,
-	setRepeatPassword,
-	setFirstName,
-	setUserName,
 	navigate,
+	register,
+	errors,
 }): JSX.Element => {
 	return (
 		<>
@@ -24,46 +21,60 @@ const RegisterPage: React.FC<IPropsRegister> = ({
 				Enter registration details
 			</Typography>
 			<TextField
+				error={!!errors.name}
 				fullWidth={true}
 				margin="normal"
 				label="Name"
 				variant="outlined"
 				placeholder="Enter name"
-				onChange={(e) => setFirstName(e.target.value)}
+				helperText={errors.name ? `${errors.name.message}` : ''}
+				{...register('name')}
 			/>
 			<TextField
+				error={!!errors.username}
 				fullWidth={true}
 				margin="normal"
 				label="Username"
 				variant="outlined"
 				placeholder="Enter username"
-				onChange={(e) => setUserName(e.target.value)}
+				helperText={errors.username ? `${errors.username.message}` : ''}
+				{...register('username')}
 			/>
 			<TextField
+				error={!!errors.email}
 				fullWidth={true}
 				margin="normal"
 				label="Email"
 				variant="outlined"
 				placeholder="Enter email"
-				onChange={(e) => setEmail(e.target.value)}
+				helperText={errors.email ? `${errors.email.message}` : ''}
+				{...register('email')}
 			/>
 			<TextField
+				error={!!errors.password}
 				fullWidth={true}
 				type="password"
 				margin="normal"
 				label="Password"
 				variant="outlined"
 				placeholder="Enter password"
-				onChange={(e) => setPassword(e.target.value)}
+				helperText={errors.password ? `${errors.password.message}` : ''}
+				{...register('password')}
 			/>
 			<TextField
+				error={!!errors.confirmPassword}
 				fullWidth={true}
 				type="password"
 				margin="normal"
 				label="Password"
 				variant="outlined"
-				placeholder="Repeat password"
-				onChange={(e) => setRepeatPassword(e.target.value)}
+				placeholder="Repeat confirm password"
+				helperText={
+					errors.confirmPassword
+						? `${errors.confirmPassword.message}`
+						: ''
+				}
+				{...register('confirmPassword')}
 			/>
 			<Button
 				variant="contained"
