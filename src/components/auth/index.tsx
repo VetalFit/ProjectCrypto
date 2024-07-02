@@ -9,13 +9,10 @@ import { useAppDispatch } from '../../utils/router/hook';
 import { login } from '../../store/slice/auth';
 import { AppErrors } from '../../common/errors';
 import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { LoginSchema, RegisterSchema } from '../../utils/yup';
 
 const AuthRootComponent: React.FC = (): JSX.Element => {
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
-	const [repeatPassword, setRepeatPassword] = useState('');
-	const [firstName, setFirstName] = useState('');
-	const [userName, setUserName] = useState('');
 	const location = useLocation();
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
@@ -23,12 +20,13 @@ const AuthRootComponent: React.FC = (): JSX.Element => {
 		register,
 		formState: { errors },
 		handleSubmit,
-	} = useForm();
-
-	console.log('errors', errors);
+	} = useForm({
+		resolver: yupResolver(
+			location.pathname === 'login' ? LoginSchema : RegisterSchema
+		),
+	});
 
 	const handleSubmitForm = async (data: any) => {
-		console.log('data', data);
 		if (location.pathname === '/login') {
 			try {
 				const userData = {
@@ -42,13 +40,13 @@ const AuthRootComponent: React.FC = (): JSX.Element => {
 				return e;
 			}
 		} else {
-			if (password === repeatPassword) {
+			if (data.password === data.confirmPassword) {
 				try {
 					const userData = {
-						firstName,
-						userName,
-						email,
-						password,
+						firstName: data.name,
+						userName: data.username,
+						email: data.email,
+						password: data.password,
 					};
 					const newUser = await instance.post(
 						'auth/register',
@@ -82,20 +80,15 @@ const AuthRootComponent: React.FC = (): JSX.Element => {
 				>
 					{location.pathname === '/login' ? (
 						<LoginPage
-							/* setEmail={setEmail}
-							setPassword={setPassword} */
 							navigate={navigate}
 							register={register}
 							errors={errors}
 						/>
 					) : location.pathname === '/register' ? (
 						<RegisterPage
-							setEmail={setEmail}
-							setPassword={setPassword}
-							setRepeatPassword={setRepeatPassword}
-							setFirstName={setFirstName}
-							setUserName={setUserName}
 							navigate={navigate}
+							register={register}
+							errors={errors}
 						/>
 					) : null}
 				</Box>
