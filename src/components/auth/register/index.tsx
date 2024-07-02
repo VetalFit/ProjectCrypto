@@ -2,17 +2,14 @@ import React from 'react';
 import { Typography, TextField, Button } from '@mui/material';
 import { IPropsRegister } from '../../../common/types/auth';
 
-const RegisterPage: React.FC<IPropsRegister> = (
-	props: IPropsRegister
-): JSX.Element => {
-	const {
-		setEmail,
-		setPassword,
-		setRepeatPassword,
-		setFirstName,
-		setUserName,
-		navigate,
-	} = props;
+const RegisterPage: React.FC<IPropsRegister> = ({
+	setEmail,
+	setPassword,
+	setRepeatPassword,
+	setFirstName,
+	setUserName,
+	navigate,
+}): JSX.Element => {
 	return (
 		<>
 			<Typography variant="h2" fontFamily="Poppins" textAlign="center">

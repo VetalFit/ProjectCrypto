@@ -9,6 +9,8 @@ import { useAppDispatch } from '../../utils/router/hook';
 import { login } from '../../store/slice/auth';
 import { AppErrors } from '../../common/errors';
 import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { LoginSchema } from '../../utils/yup';
 
 const AuthRootComponent: React.FC = (): JSX.Element => {
 	const [email, setEmail] = useState('');
@@ -23,12 +25,11 @@ const AuthRootComponent: React.FC = (): JSX.Element => {
 		register,
 		formState: { errors },
 		handleSubmit,
-	} = useForm();
-
-	console.log('errors', errors);
+	} = useForm({
+		resolver: yupResolver(LoginSchema),
+	});
 
 	const handleSubmitForm = async (data: any) => {
-		console.log('data', data);
 		if (location.pathname === '/login') {
 			try {
 				const userData = {
@@ -82,8 +83,6 @@ const AuthRootComponent: React.FC = (): JSX.Element => {
 				>
 					{location.pathname === '/login' ? (
 						<LoginPage
-							/* setEmail={setEmail}
-							setPassword={setPassword} */
 							navigate={navigate}
 							register={register}
 							errors={errors}

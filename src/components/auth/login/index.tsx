@@ -3,8 +3,11 @@ import React from 'react';
 import { TextField, Button, Typography } from '@mui/material';
 import { IPropsLogin } from '../../../common/types/auth';
 
-const LoginPage: React.FC<IPropsLogin> = (props: IPropsLogin): JSX.Element => {
-	const { /*  setPassword, setEmail, */ navigate, register, errors } = props;
+const LoginPage: React.FC<IPropsLogin> = ({
+	navigate,
+	register,
+	errors,
+}): JSX.Element => {
 	return (
 		<>
 			<Typography variant="h2" fontFamily="Poppins" textAlign="center">
@@ -26,12 +29,7 @@ const LoginPage: React.FC<IPropsLogin> = (props: IPropsLogin): JSX.Element => {
 				variant="outlined"
 				placeholder="Enter email"
 				helperText={errors.email ? `${errors.email.message}` : ''}
-				// onChange={(e) => setEmail(e.target.value)}
-				{...register('email', {
-					required: `This is required field`,
-					pattern:
-						/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-				})}
+				{...register('email')}
 			/>
 			<TextField
 				error={!!errors.password}
@@ -42,11 +40,7 @@ const LoginPage: React.FC<IPropsLogin> = (props: IPropsLogin): JSX.Element => {
 				variant="outlined"
 				placeholder="Enter password"
 				helperText={errors.password ? `${errors.password.message}` : ''}
-				// onChange={(e) => setPassword(e.target.value)}
-				{...register('password', {
-					required: `This is required field`,
-					minLength: 6,
-				})}
+				{...register('password')}
 			/>
 			<Button
 				variant="contained"
