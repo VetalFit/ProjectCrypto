@@ -1,24 +1,19 @@
 /* eslint-disable no-useless-escape */
 import React from 'react';
-import { TextField, Button, Typography } from '@mui/material';
+import { Box, TextField, Typography } from '@mui/material';
 import { IPropsLogin } from '../../../common/types/auth';
+import { useStyles } from './styles';
+import AppButton from '../../app-button';
 
-const LoginPage: React.FC<IPropsLogin> = ({
-	navigate,
-	register,
-	errors,
-}): JSX.Element => {
+const LoginPage: React.FC<IPropsLogin> = (props: IPropsLogin): JSX.Element => {
+	const { navigate, register, errors } = props;
+	const classes = useStyles();
 	return (
 		<>
-			<Typography variant="h2" fontFamily="Poppins" textAlign="center">
+			<Typography variant="h2" fontSize={32} textAlign="center">
 				Sign in
 			</Typography>
-			<Typography
-				variant="body1"
-				fontFamily="Poppins"
-				textAlign="center"
-				marginBottom={3}
-			>
+			<Typography variant="body1" textAlign="center" marginBottom={3}>
 				Enter your email and password
 			</Typography>
 			<TextField
@@ -42,27 +37,29 @@ const LoginPage: React.FC<IPropsLogin> = ({
 				helperText={errors.password ? `${errors.password.message}` : ''}
 				{...register('password')}
 			/>
-			<Button
-				variant="contained"
+			<AppButton
 				type="submit"
+				variant="contained"
 				sx={{
 					fontFamily: 'Poppins',
 					marginTop: 2,
-					width: '60%',
 					marginBottom: 2,
+					width: '60%',
 				}}
 			>
 				Sign in
-			</Button>
-			<Typography variant="body1" sx={{ fontFamily: 'Poppins' }}>
-				Don't have an account?
-				<span
-					className="incitingText"
-					onClick={() => navigate('/register')}
-				>
-					Sign up
-				</span>
-			</Typography>
+			</AppButton>
+			<Box margin={'20px 0'}>
+				<Typography variant="body1">
+					Don't have an account?
+					<span
+						className={classes.incitingText}
+						onClick={() => navigate('/register')}
+					>
+						Sign up
+					</span>
+				</Typography>
+			</Box>
 		</>
 	);
 };

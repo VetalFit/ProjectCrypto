@@ -8,7 +8,7 @@ import {
 	Typography,
 	useTheme,
 } from '@mui/material';
-import React, { useContext } from 'react';
+import React, { FC, useContext } from 'react';
 import {
 	LightMode,
 	DarkMode,
@@ -19,8 +19,11 @@ import {
 import { ColorModeContext } from '../../theme';
 import { useStyles } from './styles';
 import FlexBetween from '../flex-between';
+import { ITipBarProps } from '../../common/types/top-bar';
 
-const TopBarComponent = (props: any) => {
+const TopBarComponent: FC<ITipBarProps> = (
+	props: ITipBarProps
+): JSX.Element => {
 	const { isOpen, setIsOpen } = props;
 	const theme = useTheme();
 	const colorMode: any = useContext(ColorModeContext);

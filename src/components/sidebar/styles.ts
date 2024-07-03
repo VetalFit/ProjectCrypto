@@ -30,7 +30,7 @@ export const useStyles = makeStyles((theme: Theme) => {
 			'&:hover': {
 				backgroundColor: '#1900D5 !important',
 				color: '#fff',
-				borderRadius: '4px',
+				borderRadius: '4px !important',
 				'& .MuiSvgIcon-root': {
 					color: `${colors.white.DEFAULT} !important`,
 				},
@@ -38,6 +38,11 @@ export const useStyles = makeStyles((theme: Theme) => {
 		},
 		navBottom: {
 			width: '100%',
+		},
+		active: {
+			backgroundColor: '#1900D5 !important',
+			color: '#fff',
+			borderRadius: '4px !important',
 		},
 	};
 });
