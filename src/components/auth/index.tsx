@@ -23,7 +23,7 @@ const AuthRootComponent: React.FC = (): JSX.Element => {
 		handleSubmit,
 	} = useForm({
 		resolver: yupResolver(
-			location.pathname === 'login' ? LoginSchema : RegisterSchema
+			location.pathname === '/login' ? LoginSchema : RegisterSchema
 		),
 	});
 
@@ -45,7 +45,7 @@ const AuthRootComponent: React.FC = (): JSX.Element => {
 				try {
 					const userData = {
 						firstName: data.name,
-						userName: data.username,
+						username: data.username,
 						email: data.email,
 						password: data.password,
 					};
@@ -53,7 +53,7 @@ const AuthRootComponent: React.FC = (): JSX.Element => {
 						'auth/register',
 						userData
 					);
-					dispatch(login(newUser.data));
+					await dispatch(login(newUser.data));
 					navigate('/');
 				} catch (e) {
 					console.log(e);
