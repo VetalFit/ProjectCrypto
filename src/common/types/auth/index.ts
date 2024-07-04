@@ -24,7 +24,7 @@ export interface IAuthState {
 	isLogged: boolean;
 }
 
-export interface IPublicUser {
+interface IPublicUser {
 	id: number | null;
 	firstName: string;
 	userName: string;
