@@ -3,10 +3,10 @@ import React from 'react';
 import { Box, TextField, Typography } from '@mui/material';
 import { IPropsLogin } from '../../../common/types/auth';
 import { useStyles } from './styles';
-import AppButton from '../../app-button';
+import AppLoadingButton from '../../loading-button';
 
 const LoginPage: React.FC<IPropsLogin> = (props: IPropsLogin): JSX.Element => {
-	const { navigate, register, errors } = props;
+	const { navigate, register, errors, loading } = props;
 	const classes = useStyles();
 	return (
 		<>
@@ -37,18 +37,18 @@ const LoginPage: React.FC<IPropsLogin> = (props: IPropsLogin): JSX.Element => {
 				helperText={errors.password ? `${errors.password.message}` : ''}
 				{...register('password')}
 			/>
-			<AppButton
+			<AppLoadingButton
+				loading={loading}
 				type="submit"
 				variant="contained"
 				sx={{
-					fontFamily: 'Poppins',
 					marginTop: 2,
 					marginBottom: 2,
 					width: '60%',
 				}}
 			>
 				Sign in
-			</AppButton>
+			</AppLoadingButton>
 			<Box margin={'20px 0'}>
 				<Typography variant="body1">
 					Don't have an account?

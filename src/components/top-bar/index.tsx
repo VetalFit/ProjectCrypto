@@ -28,6 +28,7 @@ const TopBarComponent: FC<ITipBarProps> = (
 	const theme = useTheme();
 	const colorMode: any = useContext(ColorModeContext);
 	const classes = useStyles();
+	const name = sessionStorage.getItem('name');
 
 	return (
 		<AppBar className={classes.root} position="static">
@@ -37,7 +38,7 @@ const TopBarComponent: FC<ITipBarProps> = (
 						className={classes.menuIcon}
 						onClick={() => setIsOpen(!isOpen)}
 					/>
-					<Typography variant="h3">Welcome Alex</Typography>
+					<Typography variant="h3">Welcome {name}</Typography>
 				</FlexBetween>
 				<Box display="flex">
 					<Grid
