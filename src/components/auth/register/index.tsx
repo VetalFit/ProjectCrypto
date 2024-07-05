@@ -2,12 +2,13 @@ import React from 'react';
 import { Typography, TextField, Box } from '@mui/material';
 import { IPropsRegister } from '../../../common/types/auth';
 import { useStyles } from './styles';
-import AppButton from '../../app-button';
+import AppLoadingButton from '../../loading-button';
 
 const RegisterPage: React.FC<IPropsRegister> = ({
 	navigate,
 	register,
 	errors,
+	loading,
 }): JSX.Element => {
 	const classes = useStyles();
 	return (
@@ -80,9 +81,13 @@ const RegisterPage: React.FC<IPropsRegister> = ({
 					{...register('confirmPassword')}
 				/>
 			</Box>
-			<AppButton variant="contained" type="submit">
+			<AppLoadingButton
+				loading={loading}
+				variant="contained"
+				type="submit"
+			>
 				Create account
-			</AppButton>
+			</AppLoadingButton>
 			<Box margin={'20px 0'}>
 				<Typography variant="body1">
 					Do you have an account?
