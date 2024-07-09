@@ -6,7 +6,7 @@ export const useStyles = makeStyles((theme: Theme) => {
 	const colors = tokens(theme.palette.mode);
 	return {
 		root: {
-			flexGrid: 1,
+			flexGrow: 1,
 			padding: '32px',
 		},
 		topCardItem: {
@@ -16,9 +16,10 @@ export const useStyles = makeStyles((theme: Theme) => {
 					: colors.primary[600]
 			}`,
 			padding: '20px 16px',
-			minHeight: 185,
+			height: '185px',
 			border: `1px solid ${colors.borderColor}`,
 			borderRadius: 12,
+			// maxHeight: '200px',
 		},
 		assetName: {
 			fontSize: '25px',
@@ -28,7 +29,7 @@ export const useStyles = makeStyles((theme: Theme) => {
 		},
 		itemDetails: {
 			display: 'flex',
-			height: '100%',
+			height: '25%',
 			flexDirection: 'column',
 			justifyContent: 'flex-end',
 			paddingBottom: '20px',
@@ -37,14 +38,14 @@ export const useStyles = makeStyles((theme: Theme) => {
 			fontSize: '32px',
 			fontWeight: 700,
 			lineHeight: '48px',
-			margin: '-20px 0',
+			margin: '-40px 0',
 		},
 		cardCapitalize: {
 			color: `${colors.secondary.DEFAULT}`,
 			fontWeight: 400,
 			fontSize: '18px',
 			lineHeight: '21px',
-			marginBottom: '50px',
+			// marginBottom: '50px',
 		},
 	};
 });

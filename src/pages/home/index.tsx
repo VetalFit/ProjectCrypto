@@ -1,11 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useCallback, useEffect, useMemo, useRef } from 'react';
+import React, { FC, useCallback, useEffect, useMemo, useRef } from 'react';
 import { useAppDispatch, useAppSelector } from '../../utils/hook';
-import { getFavoritAssets } from '../../store/thunks/asstes';
+import { getFavoriteAssets } from '../../store/thunks/asstes';
 import { Box, Grid } from '@mui/material';
 import { useStyles } from './styles';
+import AreaChart from '../../components/charts/area-chart';
 
-const Home = () => {
+const Home: FC = (): JSX.Element => {
 	const dispatch = useAppDispatch();
 	const favoriteAssets: any[] = useAppSelector(
 		(state) => state.assets.favoriteAssets
@@ -22,7 +23,7 @@ const Home = () => {
 	const fetchdata = useCallback(
 		(data: string[]) => {
 			data.forEach((name: string) => {
-				dispatch(getFavoritAssets(name));
+				dispatch(getFavoriteAssets(name));
 			});
 		},
 		[dispatch]
@@ -38,7 +39,7 @@ const Home = () => {
 		const currentPrise = el.data.prices[0];
 		const currentCap = el.data.market_caps[0];
 		return (
-			<Grid item xs={12} sm={6} lg={6}>
+			<Grid item xs={12} sm={6} lg={6} key={el.name}>
 				<Grid container className={classes.topCardItem}>
 					<Grid item xs={12} sm={6} lg={6}>
 						<h3 className={classes.assetName}>{el.name}</h3>
@@ -46,13 +47,13 @@ const Home = () => {
 							<h3 className={classes.cardPrice}>
 								${currentPrise[1].toFixed(2)}
 							</h3>
-							<p className={classes.cardCapitalize}>
-								${currentCap[1].toFixed(0)}
-							</p>
 						</div>
+						<p className={classes.cardCapitalize}>
+							${currentCap[1].toFixed(0)}
+						</p>
 					</Grid>
 					<Grid item xs={12} sm={6} lg={6}>
-						<h5>Chart</h5>
+						<AreaChart data={el.data.prices} />
 					</Grid>
 				</Grid>
 			</Grid>
