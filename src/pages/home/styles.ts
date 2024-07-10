@@ -26,26 +26,40 @@ export const useStyles = makeStyles((theme: Theme) => {
 			fontWeight: 600,
 			lineHeight: '30px',
 			textTransform: 'capitalize',
+			margin: '0',
 		},
 		itemDetails: {
 			display: 'flex',
 			height: '25%',
 			flexDirection: 'column',
 			justifyContent: 'flex-end',
-			paddingBottom: '20px',
+			// paddingBottom: '35px',
 		},
 		cardPrice: {
 			fontSize: '32px',
 			fontWeight: 700,
 			lineHeight: '48px',
-			margin: '-40px 0',
+			margin: '0 0',
 		},
-		cardCapitalize: {
-			color: `${colors.secondary.DEFAULT}`,
-			fontWeight: 400,
-			fontSize: '18px',
-			lineHeight: '21px',
-			// marginBottom: '50px',
+		priseTrend: {
+			width: '20%',
+			display: 'flex',
+			alignItems: 'center',
+			padding: '2px',
+			borderRadius: 4,
+			// color: `${colors.secondary.DEFAULT}`,
+			// fontWeight: 400,
+			// fontSize: '18px',
+			// lineHeight: '21px',
+			marginBottom: '-75px',
+		},
+		trendUp: {
+			backgroundColor: '#A9FFA7',
+			color: '#037400',
+		},
+		trendDown: {
+			backgroundColor: '#FFA7A7',
+			color: '#740000',
 		},
 	};
 });
