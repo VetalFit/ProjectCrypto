@@ -9,6 +9,9 @@ export const useStyles = makeStyles((theme: Theme) => {
 			flexGrow: 1,
 			padding: '32px',
 		},
+		areaChart: {
+			marginBottom: '32px',
+		},
 		topCardItem: {
 			backgroundColor: `${
 				theme.palette.mode === 'light'
@@ -60,6 +63,17 @@ export const useStyles = makeStyles((theme: Theme) => {
 		trendDown: {
 			backgroundColor: '#FFA7A7',
 			color: '#740000',
+		},
+		lineChartBlock: {
+			backgroundColor: `${
+				theme.palette.mode === 'light'
+					? colors.primary.DEFAULT
+					: colors.primary[600]
+			}`,
+			padding: '20px 16px',
+			minHeight: '270px',
+			border: `1px solid ${colors.borderColor}`,
+			borderRadius: '12px',
 		},
 	};
 });
