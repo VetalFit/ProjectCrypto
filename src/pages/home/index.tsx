@@ -8,7 +8,7 @@ import AreaChart from '../../components/charts/area-chart';
 import TrendUp from '../../assets/images/chart/trend-up.svg';
 import TrendDown from '../../assets/images/chart/trend-down.svg';
 import LineChart from '../../components/charts/line-chart';
-import { IChartData } from '../../common/types/assets';
+import { IChartData, ISingleAsset } from '../../common/types/assets';
 
 const Home: FC = (): JSX.Element => {
 	const dispatch = useAppDispatch();
@@ -39,14 +39,12 @@ const Home: FC = (): JSX.Element => {
 		fetchdata(favoriteAssetName);
 	}, []);
 
-	const renderFavoriteBlock = filteredArray.map((el: any) => {
-		// const currentPrise = el.data[0];
-		// const currentCap = el.data.market_caps[0];
-
-		const currentPrise = el.singleAsset.map((el: any) => el.current_price);
-		// const currentCap = el.singleAsset.map((el: any) => el.market_cap);
+	const renderFavoriteBlock = filteredArray.map((el: IChartData) => {
+		const currentPrise = el.singleAsset.map(
+			(el: ISingleAsset) => el.current_price
+		);
 		const changePrice = el.singleAsset.map(
-			(el: any) => el.market_cap_change_percentage_24h
+			(el: ISingleAsset) => el.market_cap_change_percentage_24h
 		);
 
 		return (
@@ -61,12 +59,12 @@ const Home: FC = (): JSX.Element => {
 
 							<Box
 								className={
-									changePrice > 0
+									changePrice[0] > 0
 										? `${classes.priseTrend} ${classes.trendUp}`
 										: `${classes.priseTrend} ${classes.trendDown}`
 								}
 							>
-								{changePrice > 0 ? (
+								{changePrice[0] > 0 ? (
 									<img src={TrendUp} alt="TrendUp" />
 								) : (
 									<img src={TrendDown} alt="TrendDown" />
