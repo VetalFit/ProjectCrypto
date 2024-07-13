@@ -13,6 +13,7 @@ import {
 	Filler,
 } from 'chart.js';
 import { IAreaChartProps } from '../../../common/types/assets';
+import { FC } from 'react';
 
 Chart.register(
 	CategoryScale,
@@ -25,7 +26,7 @@ Chart.register(
 	Filler
 );
 
-const AreaChart = (props: IAreaChartProps) => {
+const AreaChart: FC<IAreaChartProps> = (props: IAreaChartProps) => {
 	const { data } = props;
 
 	const options = {

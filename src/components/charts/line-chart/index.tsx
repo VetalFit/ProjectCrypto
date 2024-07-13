@@ -10,7 +10,7 @@ import {
 	Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import { ILineChardProps } from '../../../common/types/assets';
+import { ILineChartProps } from '../../../common/types/assets';
 import moment from 'moment';
 
 Chart.register(
@@ -23,7 +23,7 @@ Chart.register(
 	Legend
 );
 
-const LineChart = (props: ILineChardProps) => {
+const LineChart = (props: ILineChartProps) => {
 	const { data } = props;
 
 	const options = {
