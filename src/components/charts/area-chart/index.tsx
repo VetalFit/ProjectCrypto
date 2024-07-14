@@ -66,6 +66,7 @@ const AreaChart: FC<IAreaChartProps> = (props: IAreaChartProps) => {
 					gradient.addColorStop(1, '#232323');
 					return gradient;
 				},
+				pointRadius: 0,
 			},
 		],
 	};
