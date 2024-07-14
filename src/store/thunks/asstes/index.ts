@@ -28,3 +28,21 @@ export const getFavoriteAssets = createAsyncThunk(
 		}
 	}
 );
+
+export const getTopPriceData = createAsyncThunk(
+	'coins/markets/topPrise',
+	async (_, { rejectWithValue }) => {
+		try {
+			const assets = await coinGeckoApi.get(
+				`coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false`
+			);
+			return assets.data;
+		} catch (e: any) {
+			if (e.response && e.response.data.message) {
+				return rejectWithValue(e.response.data.message);
+			} else {
+				return rejectWithValue(e.message);
+			}
+		}
+	}
+);
