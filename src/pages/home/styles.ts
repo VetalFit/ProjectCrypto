@@ -45,7 +45,7 @@ export const useStyles = makeStyles((theme: Theme) => {
 			margin: '0 0',
 		},
 		priseTrend: {
-			width: '20%',
+			width: '80px',
 			display: 'flex',
 			alignItems: 'center',
 			padding: '2px',
@@ -71,9 +71,27 @@ export const useStyles = makeStyles((theme: Theme) => {
 					: colors.primary[600]
 			}`,
 			padding: '20px 16px',
+			marginBottom: '32px',
 			minHeight: '270px',
 			border: `1px solid ${colors.borderColor}`,
 			borderRadius: '12px',
+		},
+		topPriseRoot: {
+			backgroundColor: `${
+				theme.palette.mode === 'light'
+					? colors.primary.DEFAULT
+					: colors.primary[600]
+			}`,
+			padding: '20px 16px',
+			marginBottom: '32px',
+			minHeight: '270px',
+			border: `1px solid ${colors.borderColor}`,
+			borderRadius: '12px',
+			'& .MuiPaper-root': {
+				backgroundColor: 'transparent !important',
+				boxShadow: 'none !important',
+				backgroundImage: 'none !important',
+			},
 		},
 	};
 });
