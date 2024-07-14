@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { FC, useCallback, useEffect, useMemo, useRef } from 'react';
 import { useAppDispatch, useAppSelector } from '../../utils/hook';
 import { getFavoriteAssets } from '../../store/thunks/asstes';
@@ -19,10 +18,12 @@ const Home: FC = (): JSX.Element => {
 	const fetchDataRef = useRef(false);
 
 	const favoriteAssetName = useMemo(() => ['bitcoin', 'ethereum'], []);
-	const filteredArray = favoriteAssets.filter(
-		(value, i: number, self: any[]) =>
-			i === self.findIndex((t) => t.name === value.name)
-	);
+	const filteredArray = useMemo(() => {
+		return favoriteAssets.filter(
+			(value, i: number, self: any[]) =>
+				i === self.findIndex((t) => t.name === value.name)
+		);
+	}, [favoriteAssets]);
 
 	const fetchdata = useCallback(
 		(data: string[]) => {
@@ -37,7 +38,7 @@ const Home: FC = (): JSX.Element => {
 		if (fetchDataRef.current) return;
 		fetchDataRef.current = true;
 		fetchdata(favoriteAssetName);
-	}, []);
+	}, [favoriteAssetName, fetchdata]);
 
 	const renderFavoriteBlock = filteredArray.map((el: IChartData) => {
 		const currentPrise = el.singleAsset.map(
