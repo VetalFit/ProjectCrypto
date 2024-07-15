@@ -107,7 +107,7 @@ const SideBarComponent: FC<ISidebarProps> = (
 						<List>
 							{!isNonMobile && (
 								<ListItem>
-									<Box padding="5px">
+									<Box padding="0px 5px">
 										<ThemeSwitcherComponent />
 									</Box>
 								</ListItem>
