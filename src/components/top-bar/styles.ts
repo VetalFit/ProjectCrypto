@@ -15,32 +15,9 @@ export const useStyles = makeStyles((theme: Theme) => {
 			justifyContent: 'space-between',
 			padding: '20px',
 		},
-		searchIcon: {
-			'&:hover': {
-				backgroundColor: 'transparent',
-			},
-		},
 		menuIcon: {
 			marginRight: '10px',
 			cursor: 'pointer',
-		},
-		iconBlock: {
-			paddingRight: '37px',
-			borderRight: `1px solid ${colors.borderColor}`,
-			display: 'flex',
-		},
-		themeIcon: {
-			marginRight: '20px',
-		},
-		searchBlock: {
-			display: 'flex',
-			maxHeight: '45px',
-			borderRadius: '8px',
-			backgroundColor: `${colors.primary[600]}`,
-			marginLeft: '28px',
-		},
-		searchInput: {
-			padding: '8px',
 		},
 	};
 });
