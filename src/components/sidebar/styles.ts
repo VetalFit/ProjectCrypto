@@ -27,10 +27,11 @@ export const useStyles = makeStyles((theme: Theme) => {
 			marginBottom: '55px',
 		},
 		navItem: {
-			color: '#fff !important',
+			margit: '10px',
 			'&:hover': {
 				backgroundColor: '#1900D5 !important',
 				borderRadius: '4px !important',
+				color: '#fff !important',
 				'& .MuiSvgIcon-root': {
 					color: `${colors.white.DEFAULT} !important`,
 				},
