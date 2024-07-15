@@ -1,4 +1,4 @@
-const SettingsComponent = () => {
+const SettingsPage = () => {
 	return (
 		<div>
 			<h1>This is settings</h1>
@@ -6,4 +6,4 @@ const SettingsComponent = () => {
 	);
 };
 
-export default SettingsComponent;
+export default SettingsPage;
