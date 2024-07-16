@@ -2,9 +2,9 @@ import { Stack, Autocomplete, TextField } from '@mui/material';
 import { ISingleAsset } from '../../common/types/assets';
 import { useAppSelector } from '../../utils/hook';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 
-const SearchBarComponent = () => {
+const SearchBarComponent: FC = (): JSX.Element => {
 	const [selectedItem, setSelectedItem] = useState<string | null>('');
 	const navigate = useNavigate();
 	const assetsArray: ISingleAsset[] = useAppSelector(
@@ -32,13 +32,6 @@ const SearchBarComponent = () => {
 				options={assetsArray.map((el: { name: string }) => el.name)}
 			/>
 		</Stack>
-
-		// <Grid className={classes.searchBlock}>
-		// 	<IconButton className={classes.searchIcon}>
-		// 		<Search />
-		// 	</IconButton>
-		// 	<InputBase className={classes.searchInput} placeholder="Search" />
-		// </Grid>
 	);
 };
 
