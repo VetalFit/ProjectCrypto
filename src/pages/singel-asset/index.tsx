@@ -96,7 +96,7 @@ const SingleAssetPage: FC = (): JSX.Element => {
 								variant="h2"
 								className={classes.cardTitle}
 							>
-								Change price in %:&nbsp;
+								Change price % :&nbsp;
 							</Typography>
 							<Typography
 								variant="h2"
