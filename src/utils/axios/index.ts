@@ -16,7 +16,10 @@ export const newsInstance = axios.create({
 export const instanceAuth = axios.create({
 	baseURL: 'http://localhost:5000',
 	timeout: 1000,
-	headers: { 'X-Custom-Header': 'foobar', Authorization: `Bearer ${token}` },
+	headers: {
+		'X-Custom-Header': 'foobar',
+		Authorization: `Bearer ${token}`,
+	},
 });
 
 export const coinGeckoApi = axios.create({
