@@ -7,6 +7,8 @@ import { useStyles } from './styles';
 import PersonalInfoComponent from '../../components/settings-personal-info';
 import { useAppDispatch } from '../../utils/hook';
 import { getPublicUser } from '../../store/thunks/auth';
+import ChangePasswordComponent from '../../components/change-password';
+import DeleteUserComponent from '../../components/delete-user';
 
 const SettingsPage = () => {
 	const [value, setValue] = useState(0);
@@ -17,7 +19,7 @@ const SettingsPage = () => {
 
 	useEffect(() => {
 		dispatch(getPublicUser());
-	}, [dispatch])
+	}, [dispatch]);
 
 	const handleChange = (e: React.SyntheticEvent, newValue: number) => {
 		setValue(newValue);
@@ -47,10 +49,10 @@ const SettingsPage = () => {
 				<PersonalInfoComponent />
 			</TabPanel>
 			<TabPanel value={value} index={1}>
-				Tabe Two
+				<ChangePasswordComponent />
 			</TabPanel>
 			<TabPanel value={value} index={2}>
-				Tabe Three
+				<DeleteUserComponent />
 			</TabPanel>
 		</Grid>
 	);
