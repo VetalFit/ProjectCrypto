@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../utils/hook';
 import { Box, Grid, TextField } from '@mui/material';
 import { useStyles } from './styles';
 import AppLoadingButton from '../loading-button';
-import { updateUserInfo } from '../../store/thunks/auth';
+import { getPublicUser, updateUserInfo } from '../../store/thunks/auth';
 
 const PersonalInfoComponent: FC = (): JSX.Element => {
 	const dispatch = useAppDispatch();
@@ -29,6 +29,7 @@ const PersonalInfoComponent: FC = (): JSX.Element => {
 			email: email,
 		};
 		dispatch(updateUserInfo(data));
+		dispatch(getPublicUser());
 	};
 
 	return (

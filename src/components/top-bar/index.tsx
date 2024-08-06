@@ -6,12 +6,13 @@ import FlexBetween from '../flex-between';
 import { ITipBarProps } from '../../common/types/top-bar';
 import ThemeSwitcherComponent from '../theme-switcher';
 import SearchBarComponent from '../search-bar';
+import { useAppSelector } from '../../utils/hook';
 
 const TopBarComponent: FC<ITipBarProps> = (
 	props: ITipBarProps
 ): JSX.Element => {
 	const { isOpen, setIsOpen, isNonMobile } = props;
-
+	const { user } = useAppSelector((state) => state.auth.user);
 	const classes = useStyles();
 	const name = sessionStorage.getItem('name');
 
@@ -29,7 +30,9 @@ const TopBarComponent: FC<ITipBarProps> = (
 								className={classes.menuIcon}
 								onClick={() => setIsOpen(!isOpen)}
 							/>
-							<Typography variant="h3">Welcome {name}</Typography>
+							<Typography variant="h3">
+								Welcome {user ? `${user.firstName}` : `${name}`}
+							</Typography>
 						</FlexBetween>
 					</Grid>
 					{isNonMobile && (
