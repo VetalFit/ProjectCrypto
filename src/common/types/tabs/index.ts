@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-export interface TabPanelProps {
-	children?: React.ReactNode
+export interface ITabPanelProps {
+	children?: React.ReactNode;
 	index: number;
 	value: number;
 }

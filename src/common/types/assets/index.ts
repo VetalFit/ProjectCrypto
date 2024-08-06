@@ -46,3 +46,7 @@ export interface IChartData {
 	priceChartData: number[][];
 	singleAsset: ISingleAsset[];
 }
+
+export interface ITablePriceData {
+	assets: ISingleAsset[];
+}

@@ -1,6 +1,10 @@
+import { FC } from 'react';
+import { ITablePriceData } from '../../common/types/assets';
 import AssetsTableComponent from '../assets-table';
 
-const TopPriseComponent = (props: any) => {
+const TopPriseComponent: FC<ITablePriceData> = (
+	props: ITablePriceData
+): JSX.Element => {
 	const { assets } = props;
 
 	return <AssetsTableComponent assets={assets} />;

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../utils/hook';
 import { getWatchlistElements } from '../../store/thunks/watchlist';
 import { getTopPriceData } from '../../store/thunks/asstes';
@@ -6,7 +6,7 @@ import AssetsTableComponent from '../../components/assets-table';
 import { Grid, Typography } from '@mui/material';
 import { useStyles } from './styles';
 
-const WatchlistPage = () => {
+const WatchlistPage: FC = (): JSX.Element => {
 	const dispatch = useAppDispatch();
 	const watchlist = useAppSelector((state) => state.watchlist.watchlist);
 	const assets = useAppSelector((state) => state.assets.assets);
