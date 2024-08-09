@@ -35,6 +35,12 @@ const SideBarComponent: FC<ISidebarProps> = (
 		setActive(pathname);
 	}, [pathname]);
 
+	const handleLogout = () => {
+		sessionStorage.removeItem('name');
+		sessionStorage.removeItem('token');
+		navigate('/login');
+	};
+
 	const renderNavMenu = navMenu.map((item): JSX.Element => {
 		return (
 			<ListItem key={item.id}>
@@ -115,7 +121,7 @@ const SideBarComponent: FC<ISidebarProps> = (
 							<ListItem>
 								<ListItemButton
 									className={classes.navItem}
-									onClick={() => navigate('/login')}
+									onClick={handleLogout}
 								>
 									<ListItemIcon>
 										<LogoutOutlined />
