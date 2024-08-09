@@ -7,7 +7,6 @@ export const loginUser = createAsyncThunk(
 	async (data: ILoginData, { rejectWithValue }) => {
 		try {
 			const user = await instance.post('auth/login', data);
-			console.log(user);
 			if (
 				user.data.status === 400 ||
 				user.data.status === 401 ||
