@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { FC, useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../utils/hook';
 import { getNews } from '../../store/thunks/news';
