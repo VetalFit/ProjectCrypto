@@ -23,8 +23,6 @@ const WatchlistPage: FC = (): JSX.Element => {
 		});
 	});
 
-	console.log(filteredArray);
-
 	return (
 		<Grid className={classes.root}>
 			<Grid className={classes.watchlistHeading}>
